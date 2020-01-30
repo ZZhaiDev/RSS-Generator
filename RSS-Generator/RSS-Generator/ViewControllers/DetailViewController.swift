@@ -67,7 +67,7 @@ class DetailViewController: UIViewController {
         let label = UILabel(frame: .zero)
         label.textColor = .gray
         label.adjustsFontSizeToFitWidth = true
-        label.textAlignment = .right
+        label.textAlignment = .center
         return label
     }()
     
