@@ -14,6 +14,7 @@ class MainViewController: UITableViewController {
     
     var dataSource: [RSSResult]? {
         didSet {
+            guard dataSource != nil else { return }
             tableView.reloadData()
         }
     }

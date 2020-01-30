@@ -74,7 +74,7 @@ class DetailViewController: UIViewController {
     lazy var albumButton: UIButton = { [weak self] in
         let button = UIButton(frame: .zero)
         button.backgroundColor = .red
-        button.setTitle("What to do here?", for: .normal)
+        button.setTitle("Link to itunes page?", for: .normal)
         button.addTarget(self, action: #selector(albumButtonClicked), for: .touchUpInside)
         return button
     }()
@@ -92,11 +92,14 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        view.backgroundColor = .white
     }
     
     @objc fileprivate func albumButtonClicked() {
-        print("I am not sure what to do here")
+        if let url = URL(string: "https://www.apple.com/itunes/") {
+            UIApplication.shared.open(url)
+        } else {
+            print("something is wrong")
+        }
     }
 
 }
@@ -121,6 +124,9 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension DetailViewController {
     fileprivate func setupUI() {
+        
+        view.backgroundColor = .white
+        
         view.addSubview(imageV)
         imageV.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: UIScreen.main.bounds.size.width)
         
